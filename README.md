@@ -35,10 +35,29 @@ The ESP32 continuously reads data from three sensors:
 
 All the readings are shown on an LCD and printed in the Serial Monitor. If the water level or moisture crosses a set threshold, it indicates potential flooding.
 
+Pin connections
+| Module          | ESP32 Pin | Description                    |
+| --------------- | --------- | ------------------------------ |
+| Ultrasonic TRIG | D5        | Trigger pin                    |
+| Ultrasonic ECHO | D18       | Echo pin                       |
+| DHT11           | D4        | Data pin                       |
+| Water Sensor    | D34       | Analog input                   |
+| LCD (I2C)       | SDA/SCL   | Default ESP32 I2C pins (21/22) |
+
 ---
+
+🚀 Future Improvements
+
+Add Wi-Fi alerts via ESP32 web server or mobile notification.
+
+Store readings on a cloud dashboard (Firebase or ThingSpeak).
+
+Include a buzzer or relay for automatic flood alerts.
+
 
 ## 🧰 Libraries Used
 ```cpp
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <DHT.h>
+
