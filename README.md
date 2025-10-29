@@ -35,29 +35,65 @@ The ESP32 continuously reads data from three sensors:
 
 All the readings are shown on an LCD and printed in the Serial Monitor. If the water level or moisture crosses a set threshold, it indicates potential flooding.
 
-Pin connections
-| Module          | ESP32 Pin | Description                    |
-| --------------- | --------- | ------------------------------ |
-| Ultrasonic TRIG | D5        | Trigger pin                    |
-| Ultrasonic ECHO | D18       | Echo pin                       |
-| DHT11           | D4        | Data pin                       |
-| Water Sensor    | D34       | Analog input                   |
-| LCD (I2C)       | SDA/SCL   | Default ESP32 I2C pins (21/22) |
-
 ---
-
-🚀 Future Improvements
-
-Add Wi-Fi alerts via ESP32 web server or mobile notification.
-
-Store readings on a cloud dashboard (Firebase or ThingSpeak).
-
-Include a buzzer or relay for automatic flood alerts.
-
 
 ## 🧰 Libraries Used
 ```cpp
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 #include <DHT.h>
+```
 
+Install these libraries from the Arduino Library Manager before uploading.
+
+---
+
+## 🔧 Pin Connections (ESP32)
+| Module | ESP32 Pin | Description |
+|--------|------------|-------------|
+| Ultrasonic TRIG | D5 | Trigger pin |
+| Ultrasonic ECHO | D18 | Echo pin |
+| DHT11 | D4 | Data pin |
+| Water Sensor | D34 | Analog input |
+| LCD (I2C) | SDA/SCL | Default ESP32 I2C pins (21/22) |
+
+---
+
+## 🖼️ LCD Display Layout
+```
+D:12 T:29C H:72%
+Water:WET
+```
+**D** = Distance (cm)  
+**T** = Temperature (°C)  
+**H** = Humidity (%)  
+**Water** = Wet/Dry Status  
+
+---
+
+## ⚙️ Calibration
+Adjust the water sensor threshold:
+```cpp
+int waterThreshold = 1500; // Tune based on test readings
+```
+Increase or decrease this value depending on your sensor’s output in dry/wet conditions.
+
+---
+
+## 🚀 Future Improvements
+- Add **Wi-Fi alerts** via ESP32 web server or mobile notification.  
+- Store readings on a cloud dashboard (Firebase or ThingSpeak).  
+- Include a **buzzer or relay** for automatic flood alerts.  
+- Use **solar power** for self-sustained flood monitoring in remote areas.  
+- Add **AI-based water level prediction** using collected data.  
+
+---
+
+## 👨‍💻 Authors
+- **Waleed Ajmal** – Robotics & IoT Developer, ESP32 and hardware integration.  
+- **Saad Farooq** – System design, debugging, and data optimization.
+
+---
+
+## 🏷️ Tags
+`#ESP32` `#IoT` `#FloodDetection` `#Arduino` `#DHT11` `#UltrasonicSensor` `#WaterSensor` `#LCD` `#Robotics` `#ClimateTech`
